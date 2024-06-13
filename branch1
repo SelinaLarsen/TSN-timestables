@@ -1,0 +1,26 @@
+def valid_integer():
+    not_valid = True
+    while not_valid:
+        try:
+            number = int(input())
+            not_valid = False
+        except ValueError:
+            print("You must enter a number")
+    return number
+print("Welcome to the times table quiz.") 
+print("Which times table would you like to test yourself on:")
+times_table = valid_integer()
+print("Enter the maximum value for your times table quiz:")
+max_value = valid_integer()
+max_value = max_value + 1
+answer = 0
+print(f"Great, you will be tested on the {times_table} times table")
+for x in range(1, max_value):
+    print(f"What is {x} times {times_table}?")
+    user_answer = valid_integer()
+    answer = x * times_table
+    while answer != user_answer:
+        print("That's incorrect, try again")
+        user_answer = valid_integer()
+    print("That's correct")
+    print(f"{x} times {times_table} is {answer}")
